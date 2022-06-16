@@ -1,4 +1,4 @@
-import { Id } from "~high-lows/assets/objects/id";
+import { Id } from "./id";
 
 export abstract class Entity<Model> {
   private readonly _id: Id;

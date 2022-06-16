@@ -1,6 +1,6 @@
 import { Controller } from "./controller";
 import { Express, NextFunction, Request, Response } from "express";
-import { validator } from "~high-lows/utils/validator";
+import { validator } from "~src/utils/validator";
 
 export abstract class Route {
   private readonly app: Express;

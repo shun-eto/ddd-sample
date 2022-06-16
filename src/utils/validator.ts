@@ -1,7 +1,7 @@
 import Ajv from "ajv";
 import { NextFunction, Request, Response } from "express";
 import { JSONSchema7 } from "json-schema";
-import { HttpException } from "../../assets/exception/http-exception";
+import { HttpException } from "../assets/exception/http-exception";
 
 export interface Schema {
   body?: JSONSchema7;
