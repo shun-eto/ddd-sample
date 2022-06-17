@@ -1,5 +1,5 @@
 import express, { Express } from "express";
-import { errorHandler } from "./presentation/middleware/error-handler";
+import { errorHandler } from "./presentation/middleware/error-handler.middleware";
 import cors from "cors";
 import { corsOptions } from "./utils/cors";
 import { RepositoriesModule } from "./modules/repositories.module";

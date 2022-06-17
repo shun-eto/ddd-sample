@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { JSONSchema7 } from "json-schema";
-import { log } from "src/utils/log";
+import { log } from "~src/utils/log";
 
 type Method = "get" | "post" | "patch" | "delete" | "put";
 interface Schema {

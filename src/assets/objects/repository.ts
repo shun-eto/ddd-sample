@@ -1,5 +1,5 @@
 import { Collection, MongoClient } from "mongodb";
-import { env } from "src/utils/env";
+import { env } from "~src/utils/env";
 
 export class Repository<Model> {
   private readonly _uri: string;

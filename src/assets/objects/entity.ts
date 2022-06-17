@@ -7,8 +7,8 @@ export abstract class Entity<Model> {
     this._id = id;
   }
 
-  get id(): string {
-    return this._id.value;
+  get id() {
+    return this._id;
   }
 
   abstract toModel(): Model;

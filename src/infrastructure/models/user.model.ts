@@ -4,12 +4,18 @@ export class UserModel extends Model {
   readonly id: string;
   readonly first_name: string;
   readonly last_name: string;
+  readonly role: string;
+  readonly activated: boolean;
+  readonly activate_code: string;
   readonly created_at: Date;
-  readonly update_at: Date | null;
+  readonly updated_at: Date | null;
 
   constructor(data: {
     id: string;
     name: { firstName: string; lastName: string };
+    role: string;
+    activated: boolean;
+    activateCode: string;
     createdAt: Date;
     updatedAt: Date | null;
   }) {
@@ -17,7 +23,10 @@ export class UserModel extends Model {
     this.id = data.id;
     this.first_name = data.name.firstName;
     this.last_name = data.name.lastName;
+    this.role = data.role;
+    this.activated = data.activated;
+    this.activate_code = data.activateCode;
     this.created_at = data.createdAt;
-    this.update_at = data.updatedAt;
+    this.updated_at = data.updatedAt;
   }
 }
