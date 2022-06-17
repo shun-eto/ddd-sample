@@ -12,3 +12,5 @@
   - Entity
   - Value Object
 - E2Eテスト
+- もう一つEntityの実装
+- Entity間のコミュニケーション方法の実装例
