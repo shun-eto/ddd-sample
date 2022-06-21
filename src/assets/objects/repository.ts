@@ -4,7 +4,7 @@ import { env } from "~src/utils/env";
 export class Repository<Model> {
   private readonly _uri: string;
   private readonly _collectionName: string;
-  private readonly _dbName = "high_lows";
+  private readonly _dbName = "ddd_sample";
   private client!: MongoClient;
   protected collection!: Collection<Model>;
 
