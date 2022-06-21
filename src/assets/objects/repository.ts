@@ -1,6 +1,12 @@
 import { Collection, MongoClient } from "mongodb";
 import { env } from "~src/utils/env";
 
+export interface RepositoryImplements {
+  connect(): Promise<void>;
+  close(): Promise<void>;
+  clear(): Promise<void>;
+}
+
 export class Repository<Model> {
   private readonly _uri: string;
   private readonly _collectionName: string;

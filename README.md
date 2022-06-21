@@ -2,31 +2,53 @@
 
 ## DDD Design with Clean Architecture を用いた開発の際に気をつけること
 
-*   依存を許容する方向性に注意する
+- 依存を許容する方向性に注意する
 
-*   ドメインロジックをドメイン層に記述する
+- ドメインロジックをドメイン層に記述する
 
 ## 残りやった方がよさそうなこと
 
-*   [ ] E2Eテスト
+- [ ] E2Eテスト
 
 ## セットアップ
 
 ### Mongo と Node のダウンロード、インストール
 
-    npm -v
-    node -v
-    mongod --version
+```
+npm -v
+node -v
+mongod --version
+```
 
 上記スクリプト実行でエラーが出なければ問題ないと思う
 
 node_modulesのインストール
 
-    npm install
+```
+npm install
+```
+
+MongoDBサーバーの起動
+
+```
+npm run mongo:start
+```
 
 サーバーの起動
 
-    npm run start
+```
+npm run start
+```
+
+SignUpリクエスト
+```
+sh scripts/post-test.sh
+// => {"ok":true}
+// 実行後DBにデータが保存されているはずです
+// Mongo Compass というGUIツールもあるので、何かしらで確認
+```
+
+
 
 ## ディレクトリ構成に関して
 

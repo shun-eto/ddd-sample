@@ -1,4 +1,4 @@
 curl \
   -X GET \
   -H "Content-Type:application/json" \
-  "http://localhost:3000/test" | jq
+  "http://localhost:2000/test" | jq

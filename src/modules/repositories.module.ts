@@ -8,5 +8,7 @@ export class RepositoriesModule {
     this.userRepository = new UserRepository();
   }
 
-  async connect() {}
+  async connect() {
+    await this.userRepository.connect();
+  }
 }

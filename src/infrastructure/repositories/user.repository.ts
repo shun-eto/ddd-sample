@@ -39,7 +39,10 @@ export class UserRepository
       lastName: model.last_name,
       firstName: model.first_name,
       createdAt: model.created_at,
-      updatedAt: model.updated_at
+      updatedAt: model.updated_at,
+      activateCode: model.activate_code,
+      activated: model.activated,
+      role: model.role
     });
 
     return user;
