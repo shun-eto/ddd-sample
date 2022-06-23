@@ -15,7 +15,7 @@ type SignUpRequest = Request<
   }
 >;
 
-type SignUpResponse = Response<{
+export type SignUpResponse = Response<{
   ok: boolean;
 }>;
 

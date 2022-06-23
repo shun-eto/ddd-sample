@@ -17,6 +17,8 @@ class Log {
   }
 
   url(method: string, pathname: string) {
+    if (process.env["NODE_ENV"] !== "development") return;
+
     const formattedMethod = (method + "    ").toUpperCase().substring(0, 6);
     console.log(
       chalk.yellowBright(`[-* ${formattedMethod} *-]`) +

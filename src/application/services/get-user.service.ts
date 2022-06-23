@@ -35,7 +35,7 @@ export class GetUserService extends Service<GetUserCommand, GetUserResult> {
 
   async execute(command: GetUserCommand): Promise<GetUserResult> {
     const signedUser = await this.userRepository.findOneById(
-      new UserId(command.userId)
+      new UserId(command.signedUserId)
     );
 
     if (!signedUser?.canFindUser) {

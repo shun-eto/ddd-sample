@@ -1,4 +1,4 @@
-import { WithId } from "mongodb";
+import { Db, WithId } from "mongodb";
 import { UserRepositoryImplements } from "~src/application/repositories/user.repository";
 import { Repository } from "~src/assets/objects/repository";
 import { User } from "~src/domain/entities/user.entity";
@@ -9,8 +9,8 @@ export class UserRepository
   extends Repository<UserModel>
   implements UserRepositoryImplements
 {
-  constructor() {
-    super("users");
+  constructor(db: Db) {
+    super(db, "users");
   }
 
   async save(user: User): Promise<{ ok: boolean }> {
