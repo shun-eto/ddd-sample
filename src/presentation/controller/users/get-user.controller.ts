@@ -5,6 +5,7 @@ import {
 } from "~src/application/services/get-user.service";
 import { Controller } from "~src/assets/objects/controller";
 import { UserDto } from "~src/domain/entities/dto/user.dto";
+import { authMiddleware } from "~src/presentation/middleware/auth.middleware";
 
 type GetUserRequest = Request<
   {
@@ -27,7 +28,7 @@ export class GetUserController extends Controller<
   constructor(private readonly getUserService: GetUserService) {
     super({
       method: "get",
-      middlewares: [],
+      middlewares: [authMiddleware],
       path: "/users/:userId",
       schema: {
         params: {
@@ -48,7 +49,6 @@ export class GetUserController extends Controller<
     _next: NextFunction
   ): Promise<GetUserResponse> {
     const command = new GetUserCommand({
-      signedUserId: req.userId,
       userId: req.params.userId
     });
     const result = await this.getUserService.execute(command);

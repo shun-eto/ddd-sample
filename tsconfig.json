@@ -10,7 +10,8 @@
     "baseUrl": "./",
     "experimentalDecorators": true,
     "paths": {
-      "~src/*": ["src/*"]
+      "~src/*": ["src/*"],
+      "~__test__/*": ["__test__/*"]
     }
   },
   "include": ["./src/**/*", "./__test__/**/*"],

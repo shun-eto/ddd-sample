@@ -4,7 +4,8 @@
     "build:dev": "webpack --mode development --config ./webpack/webpack.config.dev.js",
     "build:prod": "webpack --mode production --config ./webpack/webpack.config.prod.js",
     "dev:server-nodemon": "nodemon dist/main.js",
-    "test:e2e": "jest --config __e2e-test__/jest.config.js"
+    "test": "jest --config __test__/unit/jest.config.js",
+    "e2e-test": "jest --config __test__/e2e/jest.config.js"
   },
   "dependencies": {
     "@types/cors": "^2.8.12",

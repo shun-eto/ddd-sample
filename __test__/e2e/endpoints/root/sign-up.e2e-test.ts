@@ -1,18 +1,13 @@
 import request from "supertest";
-import app from "../../../src/app";
-import { MongoDB } from "../../../src/infrastructure/db/mongo.db";
-import { seedActivateUser } from "../../helper/seeder/seed-activate-user";
+import app from "~src/app";
+import { MongoDB } from "~src/infrastructure/db/mongo.db";
 
-describe("get user e2e", () => {
+describe("sign up e2e", () => {
   let mongoDb: MongoDB;
-
-  const userId = "active-user";
 
   beforeAll(async () => {
     mongoDb = new MongoDB();
     await mongoDb.connect();
-
-    await seedActivateUser(mongoDb.db, userId);
   });
 
   afterAll(async () => {
@@ -25,11 +20,21 @@ describe("get user e2e", () => {
 
   describe("request", () => {
     it("success", async () => {
+      const body = {
+        lastName: "lastName",
+        firstName: "firstName",
+        role: "manager"
+      };
       const response = await request(app(mongoDb.db))
-        .get(`/users/${userId}`)
+        .post("/sign-up")
+        .send(body)
         .expect(200);
 
       expect(response.body.ok).toStrictEqual(true);
+    });
+
+    it("failed : validation error", async () => {
+      await request(app(mongoDb.db)).post("/sign-up").send({}).expect(400);
     });
   });
 });

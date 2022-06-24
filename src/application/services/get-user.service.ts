@@ -9,12 +9,10 @@ import { UserId } from "~src/domain/entities/values/user/id.value";
 import { UserRepositoryImplements } from "../repositories/user.repository";
 
 export class GetUserCommand extends ServiceCommand {
-  readonly signedUserId: string;
   readonly userId: string;
 
   constructor(command: GetUserCommand) {
     super(command);
-    this.signedUserId = command.signedUserId;
     this.userId = command.userId;
   }
 }
@@ -34,17 +32,6 @@ export class GetUserService extends Service<GetUserCommand, GetUserResult> {
   }
 
   async execute(command: GetUserCommand): Promise<GetUserResult> {
-    const signedUser = await this.userRepository.findOneById(
-      new UserId(command.signedUserId)
-    );
-
-    if (!signedUser?.canFindUser) {
-      throw new HttpException(
-        "ユーザーを取得する権限がありません。",
-        "FORBIDDEN"
-      );
-    }
-
     const foundUser = await this.userRepository.findOneById(
       new UserId(command.userId)
     );
