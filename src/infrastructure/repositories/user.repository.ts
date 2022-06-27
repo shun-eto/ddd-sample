@@ -33,7 +33,7 @@ export class UserRepository
     return user;
   }
 
-  generateUser(model: WithId<UserModel> | UserModel): User {
+  private generateUser(model: WithId<UserModel> | UserModel): User {
     const user = new User({
       id: model.id,
       lastName: model.last_name,
